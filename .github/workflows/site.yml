@@ -2,7 +2,10 @@ name: Generate README and scaladoc
 on:
   workflow_call:
     inputs:
-      config-path:
+      author_name: 
+        required: true
+        type: string
+      author_email: 
         required: true
         type: string
     secrets:
@@ -23,8 +26,8 @@ jobs:
       - name: Commit README changes
         uses: EndBug/add-and-commit@v9.1.1
         with:
-          author_name: Artur Opala
-          author_email: opala.artur@gmail.com
+          author_name: ${{ inputs.author_name }}
+          author_email: ${{ inputs.author_email }}
           message: 'Update README'
           add: '*.md'
       - name: Publish API documentation on Github
