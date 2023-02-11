@@ -26,3 +26,9 @@ jobs:
           PGP_SECRET: ${{ secrets.PGP_SECRET }}
           SONATYPE_PASSWORD: ${{ secrets.SONATYPE_PASSWORD }}
           SONATYPE_USERNAME: ${{ secrets.SONATYPE_USERNAME }}
+  site:
+    uses: arturopala/workflows/.github/workflows/site.yml@main
+    with:
+      author_name: Artur Opala
+      author_email: opala.artur@gmail.com
+    secrets: inherit       
